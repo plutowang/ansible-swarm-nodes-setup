@@ -1,0 +1,8 @@
+- hosts: swarm-nodes
+  tasks:
+    - name: Install Docker
+      shell: curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+    - name: Add Docker Group
+      shell: sudo usermod -aG docker ${USER}
+    - name: Install command completion
+      shell: sudo curl -L https://raw.githubusercontent.com/docker/compose/1.25.4/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
